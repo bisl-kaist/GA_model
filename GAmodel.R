@@ -172,3 +172,45 @@ co_neighbor <- function(g){
   
   ret <- sum( mult[mult > 0] ) / ecount(g)
 }
+
+      ####################################################################################################
+# Example
+#
+# This example
+# 1) imports graph from a tab-delimited file
+# 2) measures some network measures of the graph
+# 3) generates corresponding GA model networks
+# 4) detects co-neighborness of the graphs
+####################################################################################################
+
+# 1) imports graph from a tab-delimited file
+g.real <- read.table("ca-netscience.mtx", skip=2)
+g.real <- graph.data.frame(g.real,directed=FALSE)
+g.real <- simplify(g.real)
+
+# 2) measures some network measures of the graph
+real.node.size <- vcount(g.real)
+real.edge.size <- ecount(g.real)
+real.density <- graph.density(g.real, loops=FALSE)
+real.power.fit <- power.law.fit(degree.distribution(g.real))
+power.real <- real.power.fit$alpha
+xmin.real <- real.power.fit$xmin
+
+# 3) generates corresponding GA model networks
+q <- 0.9
+g.ga <- ga.game(real.node.size,real.density,q)
+g.gar <- ga.game(real.node.size,real.density,q,revised=TRUE)
+g.gap <- ga.game(real.node.size,real.density,q,pref=TRUE,alpha=power.real,a=xmin.real)
+g.garp <- ga.game(real.node.size,real.density,q,revised=TRUE,pref=TRUE,alpha=power.real,a=xmin.real)
+
+# 4) detects co-neighborness of the graphs
+conei.real <- co_neighbor(g.real)
+conei.ga <- co_neighbor(g.ga)
+conei.gar <- co_neighbor(g.gar)
+conei.gap <- co_neighbor(g.gap)
+conei.garp <- co_neighbor(g.garp)
+conei.real
+conei.ga
+conei.gar
+conei.gap
+conei.garp
