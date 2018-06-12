@@ -173,7 +173,7 @@ co_neighbor <- function(g){
   ret <- sum( mult[mult > 0] ) / ecount(g)
 }
 
-      ####################################################################################################
+####################################################################################################
 # Example
 #
 # This example
@@ -184,7 +184,7 @@ co_neighbor <- function(g){
 ####################################################################################################
 
 # 1) imports graph from a tab-delimited file
-g.real <- read.table("ca-netscience.mtx", skip=2)
+g.real <- read.table("example.mtx", skip=2)
 g.real <- graph.data.frame(g.real,directed=FALSE)
 g.real <- simplify(g.real)
 
