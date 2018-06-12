@@ -67,7 +67,7 @@ ga.game <- function(n,p,q,directed=FALSE,revised=FALSE,pref=FALSE,alpha=1,a=1){
 # pref - Logical. Whether to use preferential GA model. (Default : FALSE)
 # alpha - Initial attractiveness of the nodes. It only works if pref=TRUE. (Default : 1)
 # a - Power of the preferential attachment. It only works if pref=TRUE. (Default : 1)
-####################################################################################################
+#
 ##### Output
 # An graph (igraph) object
 ####################################################################################################
