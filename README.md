@@ -1,5 +1,5 @@
 # GA_model
-Random network generation model incorporating the grouped attachment (GA) to resemble real-world topological properties of network motifs
+R script for random network generation model incorporating the grouped attachment (GA) to resemble real-world topological properties of network motifs
 
 ## Reference
 Jaejoon Choi, and Doheon Lee, "Topological motifs populate complex networks through grouped attachment", Under review at Scientific Reports
