@@ -158,7 +158,7 @@ ga.game <- function(n,p,q,directed=FALSE,revised=FALSE,pref=FALSE,alpha=1,a=1){
 
 co_neighbor <- function(g){
 ####################################################################################################
-# Function - Co-neighborness
+# Function - Co-neighborness measurement of a graph
 #
 ##### Input
 # g - An graph (igraph) object.
