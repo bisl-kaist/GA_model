@@ -16,8 +16,17 @@
 rm(list=ls())
 library(igraph)
 
-# Function - Random network generation based on extension
 graph.extension <- function(p, maxN=0){
+####################################################################################################
+# Function - Random network generation based on extension
+#
+##### Input
+# q - Double. Probability for edge generation. (0<q<1)
+# maxN - Integer. Number of nodes. (maxN>0)
+#
+##### Output
+# Double. Co-neighborness of the input graph.
+####################################################################################################
   g <- graph.empty(1, directed=FALSE)
   
   while(TRUE){
@@ -60,7 +69,7 @@ ga.game <- function(n,p,q,directed=FALSE,revised=FALSE,pref=FALSE,alpha=1,a=1){
 #
 ##### Input
 # n - Integer. Number of nodes. (n>0)
-# p - Double. Probability of edge generation. (0<p<1)
+# p - Double. Edge Probability (density of graph). (0<p<1)
 # q - Double. Groupness probability. (p<q<1)
 # directed - Logical. Whether to create a directed graph. (Default : FALSE)
 # revised - Logical. Whether to use revised GA model. (Default : FALSE)
@@ -145,4 +154,21 @@ ga.game <- function(n,p,q,directed=FALSE,revised=FALSE,pref=FALSE,alpha=1,a=1){
   }
   
   return (g)
+}
+
+co_neighbor <- function(g){
+####################################################################################################
+# Function - Co-neighborness
+#
+##### Input
+# g - An graph (igraph) object.
+#
+##### Output
+# Double. Co-neighborness of the input graph.
+####################################################################################################
+  jindex<-similarity.jaccard(g)
+  Emat<-as_adjacency_matrix(g,type="upper")
+  mult<-jindex*Emat
+  
+  ret <- sum( mult[mult > 0] ) / ecount(g)
 }
