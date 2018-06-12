@@ -19,7 +19,7 @@ Function - GA random network generation
 - An graph (igraph) object
 
 ## Function Description : co_neighbor
-Function - Co-neighborness
+Function - Co-neighborness measurement of a graph
 ### Input
 - g - An graph (igraph) object.
 ### Output
