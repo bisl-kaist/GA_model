@@ -18,6 +18,13 @@ Function - GA random network generation
 ### Output
 - An graph (igraph) object
 
+## Function Description : co_neighbor
+Function - Co-neighborness
+### Input
+- g - An graph (igraph) object.
+### Output
+- Double. Co-neighborness of the input graph.
+
 ## Contact
 For any problem, please contact
 - Jaejoon Choi : jjchoi@biosoft.kaist.ac.kr
