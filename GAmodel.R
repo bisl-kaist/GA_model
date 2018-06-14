@@ -23,7 +23,7 @@ graph.extension <- function(p, maxN=0){
 ##### Input
 # q - Double. Probability for edge generation. (0<q<1)
 # maxN - Integer. Maximum number of nodes. The output graph cannot have higher number of nodes than
-# maxN (maxN>0)
+#        maxN (maxN>0)
 #
 ##### Output
 # Double. Co-neighborness of the input graph.
